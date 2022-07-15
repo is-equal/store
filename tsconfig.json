@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext"],
+    "baseUrl": "./",
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "moduleResolution": "Node",
+    "strict": true,
+    "declaration": true,
+    "stripInternal": true,
+  }
+}
