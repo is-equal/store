@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 export function compose(...fns: any[]): any {
   return fns.reduce(
     (f: any, g: any) =>
