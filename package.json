@@ -4,6 +4,10 @@
     "examples/*",
     "packages/*"
   ],
+  "scripts": {
+    "store:watch": "nx run @equal/store:watch",
+    "react-store:watch": "nx run @equal/react-store:watch"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
