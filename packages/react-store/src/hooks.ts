@@ -1,15 +1,24 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { useEffect, useRef, useState } from 'react';
-import type { AnyStore, StoreWithMutations, Store } from '@equal/store';
+import type { AnyStore, StoreMutations, StoreData } from '@equal/store';
 
-type StoreData<S extends AnyStore> = S extends Store<infer Data>
-  ? Data
-  : S extends StoreWithMutations<infer Data, any>
-  ? Data
-  : never;
+export function useStore<Store extends AnyStore>(
+  store: Store
+): [StoreData<Store>, StoreMutations<Store>] {
+  const data = useStoreValue(store);
+  const mutations = useStoreMutations(store);
 
-type StoreSelector<Data, R = any> = (value: Data | undefined) => R;
+  return [data, mutations];
+}
+
+export function useStoreSubscriber<Store extends AnyStore>(store: Store): void {
+  useStoreValue(store);
+}
+
+export function useStoreMutations<Store extends AnyStore, Mutations extends StoreMutations<Store>>(
+  store: Store
+): Mutations {
+  return store as unknown as Mutations;
+}
 
 export function useStoreValue<Store extends AnyStore>(store: Store): StoreData<Store> {
   const [, forceRender] = useState(true);
@@ -29,10 +38,12 @@ export function useStoreValue<Store extends AnyStore>(store: Store): StoreData<S
   return data.current;
 }
 
-export function useStoreSelector<Store extends AnyStore, Selector extends StoreSelector<StoreData<Store>>>(
-  store: Store,
-  selector: Selector
-): ReturnType<Selector> {
+type StoreSelector<Data, R = any> = (value: Data | undefined) => R;
+
+export function useStoreSelector<
+  Store extends AnyStore,
+  Selector extends StoreSelector<StoreData<Store>>
+>(store: Store, selector: Selector): ReturnType<Selector> {
   const [, forceRender] = useState(true);
   const data = useRef<ReturnType<Selector>>(selector(store.read()));
 
