@@ -2,7 +2,7 @@ import type { Store, StoreBase, MiddlewareList, ListenerList } from './types';
 import { isFunction } from './tools';
 import { injectMutationExtension } from './mutation';
 import { injectMiddlewareExtension } from './middleware';
-import { RawMutations } from './types';
+import type { RawMutations } from './types';
 
 export function createStore<Data>(initialData: Data | (() => Data)): Store<Data> {
   // Necessary function validation because of issue: https://github.com/microsoft/TypeScript/issues/37663
