@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "store": "packages/store",
+    "react-store": "packages/react-store"
+  }
+}
