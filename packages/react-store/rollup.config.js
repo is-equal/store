@@ -17,7 +17,7 @@ export default defineConfig({
       format: 'cjs',
     },
   ],
-  external: ['react'],
+  external: ['react', '@equal/store'],
   plugins: [
     commonjs(),
     nodeResolve({ preferBuiltins: true }),

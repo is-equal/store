@@ -1,6 +1,25 @@
 {
   "name": "@equal/react-store",
   "version": "0.0.0",
+  "description": "A React Library for State Management",
+  "homepage": "https://github.com/matheusalbino/store",
+  "author": "Matheus Albino <matheusalbino@users.noreply.github.com>",
+  "license": "MIT",
+  "keywords": [
+    "store",
+    "react",
+    "state-management",
+    "state",
+    "react-state",
+    "react-store"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matheusalbino/store"
+  },
+  "bugs": {
+    "url": "https://github.com/matheusalbino/store/issues"
+  },
   "type": "module",
   "sideEffects": false,
   "module": "./lib/esm/index.js",
@@ -13,19 +32,16 @@
       "require": "./lib/esm/index.js"
     }
   },
-  "license": "MIT",
   "files": [
     "lib"
   ],
-  "scripts": {
-    "watch": "rollup -c -w",
-    "build": "NODE_ENV=production rollup -c --environment INCLUDE_DEPS,BUILD:production"
-  },
   "peerDependencies": {
     "react": "^18.2.0"
   },
+  "dependencies": {
+    "@equal/store": "workspace:*"
+  },
   "devDependencies": {
-    "@types/react": "^18.0.15",
-    "@equal/store": "^0.0.0"
+    "@types/react": "^18.0.20"
   }
 }

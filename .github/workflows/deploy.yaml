@@ -1,0 +1,44 @@
+on:
+  push:
+    tags:
+      - 'v*'
+
+name: Deploy
+
+jobs:
+  github:
+    runs-on: ubuntu-latest
+
+    outputs:
+      version: ${{ steps.version.outputs.value }}
+
+    steps:
+      - name: Get version
+        id: version
+        run: echo ::set-output name=value::${GITHUB_REF#refs/*/v*}
+
+  build:
+    needs: [ github ]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'pnpm'
+
+      - run: pnpm install
+
+      - run: pnpm build
+
+      - run: pnpm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+
+      - run: pnpm release ${{ needs.github.outputs.version }}
+
+      - run: pnpm run deploy
