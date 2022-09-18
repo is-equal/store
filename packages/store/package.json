@@ -1,6 +1,22 @@
 {
   "name": "@equal/store",
   "version": "0.0.0",
+  "description": "A Javascript Library for State Management",
+  "homepage": "https://github.com/matheusalbino/store",
+  "author": "Matheus Albino <matheusalbino@users.noreply.github.com>",
+  "license": "MIT",
+  "keywords": [
+    "store",
+    "state-management",
+    "state"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matheusalbino/store"
+  },
+  "bugs": {
+    "url": "https://github.com/matheusalbino/store/issues"
+  },
   "type": "module",
   "sideEffects": false,
   "module": "./lib/esm/index.js",
@@ -13,12 +29,7 @@
       "require": "./lib/esm/index.js"
     }
   },
-  "license": "MIT",
   "files": [
     "lib"
-  ],
-  "scripts": {
-    "watch": "rollup -c -w",
-    "build": "NODE_ENV=production rollup -c --environment INCLUDE_DEPS,BUILD:production"
-  }
+  ]
 }

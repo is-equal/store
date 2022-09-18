@@ -1,2 +1,2 @@
 export * from './hooks';
-export { createStore } from '@equal/store';
+export * from '@equal/store';

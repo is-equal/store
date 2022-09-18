@@ -1,27 +1,31 @@
 {
+  "name": "equal-store",
   "private": true,
-  "workspaces": [
-    "examples/*",
-    "packages/*"
-  ],
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  },
   "scripts": {
-    "store:watch": "nx run @equal/store:watch",
-    "react-store:watch": "nx run @equal/react-store:watch"
+    "reset": "nx reset",
+    "build": "nx run-many --target=build --all",
+    "build:clean": "pnpm reset && pnpm build",
+    "release": "nx run-many --target=release --all",
+    "deploy": "pnpm -r publish --no-git-checks --access public"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^22.0.1",
-    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^14.1.0",
     "@rollup/plugin-replace": "^4.0.0",
-    "@types/node": "^18.6.2",
-    "@typescript-eslint/eslint-plugin": "^5.31.0",
-    "@typescript-eslint/parser": "^5.31.0",
-    "eslint": "^8.20.0",
+    "@types/node": "^18.7.18",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
+    "eslint": "^8.23.1",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "nx": "14.5.1",
+    "nx": "^14.7.5",
     "prettier": "^2.7.1",
-    "rollup": "^2.77.2",
-    "rollup-plugin-typescript2": "^0.32.1",
-    "typescript": "^4.7.4"
+    "rollup": "^2.79.0",
+    "rollup-plugin-typescript2": "^0.34.0",
+    "typescript": "^4.8.3"
   }
 }

@@ -1,7 +1,19 @@
-# React-Store
+# @equal/store
 
 ## Installation
 
+### Javascript
+
 ```bash
-yarn add -D @equal/react-store
+npm i @equal/store
 ```
+
+### React
+
+```bash
+npm i @equal/react-store
+```
+
+## Examples
+
+- [React](https://github.com/matheusalbino/store/tree/main/examples/react)

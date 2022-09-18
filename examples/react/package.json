@@ -1,21 +1,24 @@
 {
-  "name": "react-example",
+  "name": "react_store_example",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "start": "rollup -c -w",
     "build": "NODE_ENV=production rollup -c --environment INCLUDE_DEPS,BUILD:production"
   },
   "dependencies": {
-    "@equal/react-store": "^0.0.0",
+    "@equal/react-store": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@rollup/plugin-html": "^0.2.4",
+    "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
-    "postcss": "^8.4.14",
+    "postcss": "^8.4.16",
+    "rollup": "^2.79.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-serve": "^2.0.0"
+    "rollup-plugin-serve": "^2.0.1"
   }
 }
